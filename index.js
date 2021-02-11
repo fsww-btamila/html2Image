@@ -120,53 +120,7 @@ app.post("/htmltopdf", (request, res) => {
 
 });
 
-app.post("/img", async(request, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    let reqParam = request.body;
-    console.log("Welcome.....");
-    console.log("reqParam", reqParam);
 
-    var resultObj = {};
-    const htmlData = reqParam.htmlData;
-    const fileName = reqParam.fname;
-    // const type = reqParam.type;
-
-    let options = { format: 'A4' };
-    // Example of options with args //
-    // let options = { format: 'A4', args: ['--no-sandbox', '--disable-setuid-sandbox'] };
-
-    let file = { content: htmlData };
-
-    const image = await nodeHtmlToImage({
-        html: '<html><body><div>Check out what I just did! #cool தமிழ்நாட்டின் அன்றாட நிகழ்வுகள்</div></body></html>'
-    });
-
-    console.log("image",image);
-
-    const base64Image = new Buffer.from(image).toString('base64');
-    const dataURI = 'data:image/jpeg;base64,' + base64Image;
-
-    var utc = (moment.utc()).valueOf();
-    var path = 'tmp/pdf/';
-    var fname = 'fileName' + '_' + utc + '.jpeg';
-    var fileLocation = path + fname;
-
-    fs.writeFile(fileLocation, base64Image, 'base64', function(err) {
-        if (err) { console.log(err) } else {
-            console.log("IMAGE Uploaded successfully..")
-        }
-    });
-
-    resultObj = {
-        'Msg': 'PDF created successfully...',
-        'image': dataURI,
-        'base64': base64Image
-
-    }
-    return res.json(resultObj);
-
-
-});
 
 
 // set port, listen for requests
