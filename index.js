@@ -120,7 +120,7 @@ const htmlPdfNode = require('html-pdf-node');
 
 });
 
-app.post("/img", (request, res) => {
+app.post("/img", async(request, res) => {
       res.setHeader('Access-Control-Allow-Origin', '*');
       let reqParam = request.body;
       console.log("Welcome.....");
