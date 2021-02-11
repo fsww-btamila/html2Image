@@ -120,7 +120,11 @@ const htmlPdfNode = require('html-pdf-node');
 
 });
 
+<<<<<<< HEAD
  app.post("/img", async (request, res) => {
+=======
+app.post("/img", async(request, res) => {
+>>>>>>> f116dc02cf74905cc9d875ab1fa565346b501dc0
       res.setHeader('Access-Control-Allow-Origin', '*');
       let reqParam = request.body;
       console.log("Welcome.....");
@@ -138,8 +142,15 @@ const htmlPdfNode = require('html-pdf-node');
       let file = { content: htmlData };
 
       const image = await nodeHtmlToImage({
+<<<<<<< HEAD
         html: '<html><body><div>Check out what I just did! #cool நிகழ்வுகள்</div></body></html>'
       });
+=======
+        html: '<html><body><div>Check out what I just did! #cool தமிழ்நாட்டின் அன்றாட நிகழ்வுகள்</div></body></html>'
+      });
+ 
+     
+>>>>>>> f116dc02cf74905cc9d875ab1fa565346b501dc0
 
 
       const base64Image = new Buffer.from(image).toString('base64');
@@ -152,7 +163,11 @@ const htmlPdfNode = require('html-pdf-node');
 
       fs.writeFile(fileLocation, base64Image, 'base64', function(err) {
             if (err) { console.log(err) } else {
+<<<<<<< HEAD
             console.log("PDF Uploaded successfully..")
+=======
+            console.log("IMAGE Uploaded successfully..")
+>>>>>>> f116dc02cf74905cc9d875ab1fa565346b501dc0
 
             }
       });
@@ -164,9 +179,14 @@ const htmlPdfNode = require('html-pdf-node');
 
       } 
       return res.json(resultObj);
+<<<<<<< HEAD
 
       
 });
+=======
+});
+
+>>>>>>> f116dc02cf74905cc9d875ab1fa565346b501dc0
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
