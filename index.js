@@ -141,8 +141,7 @@ app.post("/img", async(request, res) => {
         html: '<html><body><div>Check out what I just did! #cool தமிழ்நாட்டின் அன்றாட நிகழ்வுகள்</div></body></html>'
     });
 
-    console.log("image"
-        image);
+    console.log("image",image);
 
     const base64Image = new Buffer.from(image).toString('base64');
     const dataURI = 'data:image/jpeg;base64,' + base64Image;
